@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+html, body {
+  color: #fff;
+  font-optical-sizing: auto;
+  min-height: 100vh;
+  font-size: 16px;
+}
