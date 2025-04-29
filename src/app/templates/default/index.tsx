@@ -15,6 +15,7 @@ const roboto = Roboto({
 });
 
 export default function Default({ page }: Props) {
+  console.log("These are all the attributes of the page: ", page);
   return (
     <div className={`${roboto.className} w-full min-h-screen flex flex-col bg-radial from-[#373737] to-[#0a0a0a]`}>
       <div className="w-full pt-[40px] pr-[40px] flex">

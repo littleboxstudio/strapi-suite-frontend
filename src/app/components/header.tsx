@@ -9,7 +9,7 @@ export default function Header() {
 
   useEffect(() => {
     setCurrentLocale(locale.current);
-  }, [locale.current]);
+  }, [locale]);
 
   return (
     <ul className="flex justify-end gap-2 w-full">

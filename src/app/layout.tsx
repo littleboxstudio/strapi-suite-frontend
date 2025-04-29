@@ -8,9 +8,8 @@ import { LocaleProvider } from "@/app/core/contexts/locale";
 import { MenuProvider } from "@/app/core/contexts/menu";
 import "./globals.css";
 
-export const revalidate = Number(process.env.REQUEST_REVALIDATE);
 export const headers: RequestInit = {
-  next: { revalidate },
+  next: { revalidate: Number(process.env.REQUEST_REVALIDATE) },
   method: "GET",
   headers: {
     Authorization: `Bearer ${process.env.API_TOKEN}`,

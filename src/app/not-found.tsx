@@ -20,7 +20,7 @@ export default function NotFound() {
   useEffect(() => {
     const homepageLink = locale.getHomepageLink(locale.current);
     setHomepageLink(homepageLink);
-  }, [locale.current]);
+  }, [locale]);
 
   return (
     <div className={`${roboto.className} w-full min-h-screen flex flex-col bg-radial from-[#373737] to-[#0a0a0a]`}>

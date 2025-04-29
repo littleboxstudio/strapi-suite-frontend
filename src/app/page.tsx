@@ -7,10 +7,15 @@ import { metaDataGenerator } from "@/app/core/lib/metaDataGenerator";
 import BaseTemplate from "@/app/core/components/base-template";
 import BaseBreadcrumbJsonLd from "@/app/core/components/base-breadcrumb-jsondl";
 
-export const revalidate = Number(process.env.REQUEST_REVALIDATE);
+export const revalidate = 1;
 export const dynamicParams = true;
-export const headers: RequestInit = {
-  next: { revalidate },
+
+type TemplateProps = {
+  page: Page;
+};
+
+const headers: RequestInit = {
+  next: { revalidate: Number(process.env.REQUEST_REVALIDATE) },
   method: "GET",
   headers: {
     Authorization: `Bearer ${process.env.API_TOKEN}`,
@@ -18,11 +23,7 @@ export const headers: RequestInit = {
   },
 };
 
-type TemplateProps = {
-  page: Page;
-};
-
-export const getHomePage = cache(async () => {
+const getHomePage = cache(async () => {
   const page = await fetch(
     `${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/pages/home?properties=attributes`,
     headers
@@ -30,7 +31,7 @@ export const getHomePage = cache(async () => {
   return page.json();
 });
 
-export const getParameters = cache(async () => {
+const getParameters = cache(async () => {
   const page = await fetch(`${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/parameters`, headers);
   return page.json();
 });
