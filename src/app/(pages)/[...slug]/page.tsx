@@ -44,13 +44,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export async function generateStaticParams() {
-  const pages: Pages[] = await fetch(`${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/pages`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${process.env.API_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-  }).then((res) => res.json());
+  const pages: Pages[] = await fetch(
+    `${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/pages`,
+    headers
+  ).then((res) => res.json());
   return pages
     .filter((page) => page.slug !== "")
     .map((page) => ({
