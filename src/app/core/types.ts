@@ -125,3 +125,8 @@ export interface Locales {
   locales: string[];
   default: string;
 }
+
+export interface Faq {
+  title: string;
+  text: string;
+}
