@@ -72,7 +72,7 @@ export interface PageSeo {
   keywords: string;
   metaTitle: string;
   metaDescription: string;
-  metaImage: string;
+  metaImage: any;
   openGraph?: {
     ogDescription: string;
     ogImage: string;
@@ -86,6 +86,7 @@ export interface PageSeo {
     nocache: boolean;
     noimageindex: boolean;
   };
+  structuredData: any;
 }
 
 export interface Parameter {

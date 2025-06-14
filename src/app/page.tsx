@@ -6,6 +6,7 @@ import { Page, Parameter } from "@/app/core/types";
 import { metaDataGenerator } from "@/app/core/lib/metaDataGenerator";
 import BaseTemplate from "@/app/core/components/base-template";
 import BaseBreadcrumbJsonLd from "@/app/core/components/base-breadcrumb-jsondl";
+import BaseJsonLd from "@/app/core/components/base-jsondl";
 
 export const revalidate = 1;
 export const dynamicParams = true;
@@ -61,6 +62,7 @@ export default async function Index() {
     <BaseTemplate page={page}>
       <Template page={page} />
       <BaseBreadcrumbJsonLd page={page} />
+      <BaseJsonLd page={page} />
     </BaseTemplate>
   );
 }
