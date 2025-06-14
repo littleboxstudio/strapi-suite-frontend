@@ -7,6 +7,6 @@ export default function BaseJsonLd(props: { page: Page }) {
   if (jsonLd.description === "[META_DESCRIPTION]") jsonLd.description = props.page.document.seo.metaDescription;
   if (jsonLd.url === "[CANONICAL_URL]") jsonLd.url = props.page.document.seo.canonicalURL;
   if (jsonLd.image === "[META_IMAGE]")
-    jsonLd.image = `${process.env.NEXT_PUBLIC_STATIC_URL}${props.page.document.seo.metaImage.url}`;
+    jsonLd.image = `${process.env.NEXT_PUBLIC_STATIC_URL}${props.page.document.seo.metaImage?.url}`;
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />;
 }

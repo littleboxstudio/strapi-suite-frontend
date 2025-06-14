@@ -5,8 +5,8 @@ import { notFound } from "next/navigation";
 import { Page, Pages, Parameter } from "@/app/core/types";
 import { metaDataGenerator } from "@/app/core/lib/metaDataGenerator";
 import BaseTemplate from "@/app/core/components/base-template";
-import BaseBreadcrumbJsonLd from "@/app/core/components/base-breadcrumb-jsondl";
-import BaseJsonLd from "@/app/core/components/base-jsondl";
+import BaseBreadcrumbJsonLd from "@/app/core/components/base-breadcrumb-jsonld";
+import BaseJsonLd from "@/app/core/components/base-jsonld";
 
 export const revalidate = 1;
 export const dynamicParams = true;
