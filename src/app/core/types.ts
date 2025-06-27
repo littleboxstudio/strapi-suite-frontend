@@ -75,7 +75,7 @@ export interface PageSeo {
   metaImage: any;
   openGraph?: {
     ogDescription: string;
-    ogImage: string;
+    ogImage: any;
     ogTitle: string;
     ogType: OgType;
     ogUrl: string;

@@ -18,7 +18,7 @@ export function metaDataGenerator(page: Page, parameters: Parameter[]): Metadata
       card: "summary_large_image",
       title: seo?.openGraph?.ogTitle,
       description: seo?.openGraph?.ogDescription,
-      images: [seo?.openGraph?.ogImage],
+      images: [`${process.env.NEXT_PUBLIC_STATIC_URL}${seo?.openGraph?.ogImage?.url}`],
     },
     robots: {
       index: seo?.robots?.index,
@@ -43,7 +43,7 @@ export function metaDataGenerator(page: Page, parameters: Parameter[]): Metadata
       url: seo?.openGraph?.ogUrl,
       images: [
         {
-          url: seo?.openGraph?.ogImage,
+          url: `${process.env.NEXT_PUBLIC_STATIC_URL}${seo?.openGraph?.ogImage?.url}`,
         },
       ],
       locale: page.document.locale,
