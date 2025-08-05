@@ -1,7 +1,7 @@
 import { Page } from "@/app/core/types";
 
 export default function BaseJsonLd(props: { page: Page }) {
-  if (!props.page.document.seo.structuredData) return <></>;
+  if (!props.page.document.seo?.structuredData) return <></>;
   const jsonLd = props.page.document.seo.structuredData;
   if (jsonLd.name === "[META_TITLE]") jsonLd.name = props.page.document.seo.metaTitle;
   if (jsonLd.description === "[META_DESCRIPTION]") jsonLd.description = props.page.document.seo.metaDescription;
