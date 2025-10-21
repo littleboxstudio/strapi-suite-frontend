@@ -26,7 +26,7 @@ const headers: RequestInit = {
 
 const getHomePage = cache(async () => {
   const page = await fetch(
-    `${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/pages/home?properties=attributes`,
+    `${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/pages/home?properties=attributes,content`,
     headers
   );
   return page.json();
