@@ -39,7 +39,7 @@ export function LocaleProvider({ children, data, fallback, current }: AuthProvid
     return data.locales;
   }
   function getHomepageLink(locale: string): string {
-    const homepagePath = fallback[locale];
+    const homepagePath = fallback[locale.toLocaleLowerCase()];
     if (!homepagePath) {
       throw new Error(`There is no homepage for the locale "${locale}"`);
     }
