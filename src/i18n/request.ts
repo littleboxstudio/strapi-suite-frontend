@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 export default getRequestConfig(async () => {
   const cookieStore = await cookies();
   const nextLocale = cookieStore.get("NEXT_LOCALE");
-  const locale = (nextLocale as { name: string; value: string }).value.toLocaleLowerCase();
+  const locale = (nextLocale as { name: string; value: string }).value;
   const translations = await fetch(`${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/translations`, {
     method: "GET",
     headers: {
