@@ -20,7 +20,7 @@ export const headers: RequestInit = {
 export const getMenus = cache(async (locale: string) => {
   const page = await fetch(
     `${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/menus?locale=${locale}`,
-    headers
+    headers,
   );
   return page.json();
 });
@@ -50,9 +50,9 @@ export default async function RootLayout({
   const parameters = await getParameters();
   const locales = await getLocales();
   const homepage: Page = await getHomepage();
-  const fallback = { [homepage.document.locale.toLowerCase()]: `/${homepage.document.slug}` };
+  const fallback = { [homepage.document.locale]: `/${homepage.document.slug}` };
   homepage.document.localizations.forEach((localization: PageLocalization) => {
-    fallback[localization.locale.toLowerCase()] = `/${localization.slug}`;
+    fallback[localization.locale] = `/${localization.slug}`;
   });
   return (
     <html lang={locale}>
