@@ -2,7 +2,7 @@ import { cache } from "react";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
-import { Page, Pages, Parameter } from "@/app/core/types";
+import { Page, Document, Parameter } from "@/app/core/types";
 import { metaDataGenerator } from "@/app/core/lib/metaDataGenerator";
 import BaseTemplate from "@/app/core/components/base-template";
 import BaseBreadcrumbJsonLd from "@/app/core/components/base-breadcrumb-jsonld";
@@ -27,7 +27,7 @@ const headers: RequestInit = {
 const getPage = cache(async (slug: string) => {
   const page = await fetch(
     `${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/pages?slug=${slug}&properties=attributes`,
-    headers
+    headers,
   );
   return page.json();
 });
@@ -45,9 +45,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export async function generateStaticParams() {
-  const pages: Pages[] = await fetch(
+  const pages: Document[] = await fetch(
     `${process.env.API_BASE_URL}/api/littlebox-strapi-suite/modules/pages`,
-    headers
+    headers,
   ).then((res) => res.json());
   return pages
     .filter((page) => page.slug !== "")
@@ -70,7 +70,7 @@ export default async function Index({ params }: { params: Promise<{ slug: string
     await strategy(page);
   } catch {}
   const Template = dynamic<TemplateProps>(() =>
-    import(`../../templates/${page.attributes.template}`).then((mod) => mod.default)
+    import(`../../templates/${page.attributes.template}`).then((mod) => mod.default),
   );
   return (
     <BaseTemplate page={page}>

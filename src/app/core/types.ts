@@ -1,4 +1,4 @@
-export interface Pages {
+export interface Document {
   id: number;
   documentId: string;
   slug: string;
@@ -6,7 +6,7 @@ export interface Pages {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  localizations: Pages[];
+  localizations: Document[];
 }
 
 export interface Page {
@@ -46,7 +46,7 @@ export interface PageLocalization {
   locale: string;
 }
 
-export interface PageBreadcrumbs { 
+export interface PageBreadcrumbs {
   position: number;
   item: string;
   name: string;
